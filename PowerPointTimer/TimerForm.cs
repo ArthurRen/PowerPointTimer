@@ -93,7 +93,7 @@ namespace PowerPointTimer
                 CurrentTime = CurrentTime.Subtract(_second);
                 var time = CurrentTime.Duration();
                 var text =
-                    $"{(CurrentTime.TotalSeconds < 0 ? "-" : "")}{time.Hours.ToString("d2")}:{time.Minutes.ToString("d2")}:{time.Seconds.ToString("d2")}";
+                    $"{(CurrentTime.TotalSeconds < 0 ? "-" : "")}{time.Minutes.ToString("d2")}:{time.Seconds.ToString("d2")}";
                 BeginInvoke(new Action(() =>
                 {
                     labelTime.Text = text;

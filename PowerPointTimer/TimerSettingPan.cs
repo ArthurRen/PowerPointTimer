@@ -30,7 +30,7 @@ namespace PowerPointTimer
             // time
             var time = TimerForm.TickTime;
             labelTime.Text =
-                $"{time.Hours.ToString("d2")}:{time.Minutes.ToString("d2")}:{time.Seconds.ToString("d2")}";
+                $"{time.Minutes.ToString("d2")}:{time.Seconds.ToString("d2")}";
             edtMin.Value = time.Minutes;
             edtSec.Value = time.Seconds;
 
@@ -88,7 +88,7 @@ namespace PowerPointTimer
         private void ApplyTime(TimeSpan time)
         {
             labelTime.Text =
-                $"{time.Hours.ToString("d2")}:{time.Minutes.ToString("d2")}:{time.Seconds.ToString("d2")}";
+                $"{time.Minutes.ToString("d2")}:{time.Seconds.ToString("d2")}";
             TimerForm.TickTime = time;
         }
 

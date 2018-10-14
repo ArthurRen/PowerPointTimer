@@ -39,9 +39,9 @@
             this.labelTime.Location = new System.Drawing.Point(0, 0);
             this.labelTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(236, 74);
+            this.labelTime.Size = new System.Drawing.Size(164, 74);
             this.labelTime.TabIndex = 0;
-            this.labelTime.Text = "00:00:00";
+            this.labelTime.Text = "00:00";
             this.labelTime.SizeChanged += new System.EventHandler(this.labelTime_SizeChanged);
             this.labelTime.Click += new System.EventHandler(this.labelTime_Click);
             // 
@@ -49,10 +49,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(224, 79);
+            this.ClientSize = new System.Drawing.Size(160, 79);
             this.Controls.Add(this.labelTime);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TimerForm";
             this.Text = "TimerForm";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TimerForm_KeyDown);

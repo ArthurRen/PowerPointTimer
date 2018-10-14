@@ -89,9 +89,9 @@
             this.labelTime.Location = new System.Drawing.Point(0, 0);
             this.labelTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(248, 56);
+            this.labelTime.Size = new System.Drawing.Size(164, 56);
             this.labelTime.TabIndex = 0;
-            this.labelTime.Text = "00:00:00";
+            this.labelTime.Text = "00:00";
             // 
             // btnSetFont
             // 
@@ -253,7 +253,7 @@
             this.label5.TabIndex = 23;
             this.label5.Text = "警告时间（s）：";
             // 
-            // TimerSetting
+            // TimerSettingPan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -271,7 +271,7 @@
             this.Controls.Add(this.btnSetFont);
             this.Controls.Add(this.gbPreview);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "TimerSetting";
+            this.Name = "TimerSettingPan";
             this.Size = new System.Drawing.Size(396, 457);
             this.gbPreview.ResumeLayout(false);
             this.gbPreview.PerformLayout();
