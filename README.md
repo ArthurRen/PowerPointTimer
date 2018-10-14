@@ -1,2 +1,2 @@
 # PowerPointTimer
-A power point timer plugin
+A power point timer plugin basd on VSTO
