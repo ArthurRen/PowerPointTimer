@@ -63,11 +63,6 @@ namespace PowerPointTimer
             }
         }
 
-        public void ckbOpenTimer_Click(Office.IRibbonControl control , bool pressed)
-        {
-            ThisAddIn.Enable = pressed;
-        }
-
         #endregion
 
         #region 帮助器

@@ -48,12 +48,15 @@
             this.negativeForecolorDialog = new System.Windows.Forms.ColorDialog();
             this.edtAlarmSec = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
+            this.panelSetting = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.gbPreview.SuspendLayout();
             this.labelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edtMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtSec)).BeginInit();
             this.gbLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edtAlarmSec)).BeginInit();
+            this.panelSetting.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbPreview
@@ -61,11 +64,11 @@
             this.gbPreview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbPreview.Controls.Add(this.labelContainer);
-            this.gbPreview.Location = new System.Drawing.Point(0, 183);
+            this.gbPreview.Location = new System.Drawing.Point(0, 146);
             this.gbPreview.Margin = new System.Windows.Forms.Padding(2);
             this.gbPreview.Name = "gbPreview";
             this.gbPreview.Padding = new System.Windows.Forms.Padding(2);
-            this.gbPreview.Size = new System.Drawing.Size(394, 110);
+            this.gbPreview.Size = new System.Drawing.Size(437, 110);
             this.gbPreview.TabIndex = 0;
             this.gbPreview.TabStop = false;
             this.gbPreview.Text = "预览";
@@ -78,14 +81,14 @@
             this.labelContainer.Location = new System.Drawing.Point(2, 16);
             this.labelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.labelContainer.Name = "labelContainer";
-            this.labelContainer.Size = new System.Drawing.Size(390, 56);
+            this.labelContainer.Size = new System.Drawing.Size(433, 56);
             this.labelContainer.TabIndex = 0;
             // 
             // labelTime
             // 
             this.labelTime.AutoSize = true;
             this.labelTime.BackColor = System.Drawing.Color.Transparent;
-            this.labelTime.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelTime.Font = new System.Drawing.Font("SimSun", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelTime.Location = new System.Drawing.Point(0, 0);
             this.labelTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTime.Name = "labelTime";
@@ -95,7 +98,7 @@
             // 
             // btnSetFont
             // 
-            this.btnSetFont.Location = new System.Drawing.Point(4, 15);
+            this.btnSetFont.Location = new System.Drawing.Point(2, 2);
             this.btnSetFont.Margin = new System.Windows.Forms.Padding(2);
             this.btnSetFont.Name = "btnSetFont";
             this.btnSetFont.Size = new System.Drawing.Size(88, 24);
@@ -109,7 +112,7 @@
             this.btnSetPosForecolor.BackColor = System.Drawing.Color.Black;
             this.btnSetPosForecolor.FlatAppearance.BorderSize = 0;
             this.btnSetPosForecolor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetPosForecolor.Location = new System.Drawing.Point(98, 47);
+            this.btnSetPosForecolor.Location = new System.Drawing.Point(96, 34);
             this.btnSetPosForecolor.Margin = new System.Windows.Forms.Padding(2);
             this.btnSetPosForecolor.Name = "btnSetPosForecolor";
             this.btnSetPosForecolor.Size = new System.Drawing.Size(22, 24);
@@ -120,7 +123,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(112, 108);
+            this.label4.Location = new System.Drawing.Point(110, 95);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(11, 12);
@@ -130,7 +133,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 107);
+            this.label6.Location = new System.Drawing.Point(3, 94);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 12);
@@ -139,7 +142,7 @@
             // 
             // edtMin
             // 
-            this.edtMin.Location = new System.Drawing.Point(74, 105);
+            this.edtMin.Location = new System.Drawing.Point(72, 92);
             this.edtMin.Margin = new System.Windows.Forms.Padding(2);
             this.edtMin.Maximum = new decimal(new int[] {
             59,
@@ -153,7 +156,7 @@
             // 
             // edtSec
             // 
-            this.edtSec.Location = new System.Drawing.Point(127, 105);
+            this.edtSec.Location = new System.Drawing.Point(125, 92);
             this.edtSec.Margin = new System.Windows.Forms.Padding(2);
             this.edtSec.Maximum = new decimal(new int[] {
             59,
@@ -171,11 +174,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbLog.Controls.Add(this.listLog);
-            this.gbLog.Location = new System.Drawing.Point(0, 297);
+            this.gbLog.Location = new System.Drawing.Point(0, 260);
             this.gbLog.Margin = new System.Windows.Forms.Padding(2);
             this.gbLog.Name = "gbLog";
             this.gbLog.Padding = new System.Windows.Forms.Padding(2);
-            this.gbLog.Size = new System.Drawing.Size(396, 160);
+            this.gbLog.Size = new System.Drawing.Size(439, 278);
             this.gbLog.TabIndex = 18;
             this.gbLog.TabStop = false;
             this.gbLog.Text = "定时记录";
@@ -188,13 +191,13 @@
             this.listLog.Location = new System.Drawing.Point(2, 16);
             this.listLog.Margin = new System.Windows.Forms.Padding(2);
             this.listLog.Name = "listLog";
-            this.listLog.Size = new System.Drawing.Size(392, 142);
+            this.listLog.Size = new System.Drawing.Size(435, 260);
             this.listLog.TabIndex = 18;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 53);
+            this.label2.Location = new System.Drawing.Point(3, 40);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 12);
@@ -204,7 +207,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 84);
+            this.label1.Location = new System.Drawing.Point(3, 71);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 12);
@@ -216,7 +219,7 @@
             this.btnSetNegForeground.BackColor = System.Drawing.Color.Black;
             this.btnSetNegForeground.FlatAppearance.BorderSize = 0;
             this.btnSetNegForeground.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetNegForeground.Location = new System.Drawing.Point(98, 78);
+            this.btnSetNegForeground.Location = new System.Drawing.Point(96, 65);
             this.btnSetNegForeground.Margin = new System.Windows.Forms.Padding(2);
             this.btnSetNegForeground.Name = "btnSetNegForeground";
             this.btnSetNegForeground.Size = new System.Drawing.Size(22, 24);
@@ -226,7 +229,7 @@
             // 
             // edtAlarmSec
             // 
-            this.edtAlarmSec.Location = new System.Drawing.Point(104, 131);
+            this.edtAlarmSec.Location = new System.Drawing.Point(102, 118);
             this.edtAlarmSec.Margin = new System.Windows.Forms.Padding(2);
             this.edtAlarmSec.Minimum = new decimal(new int[] {
             1,
@@ -246,33 +249,56 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 134);
+            this.label5.Location = new System.Drawing.Point(3, 121);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 12);
             this.label5.TabIndex = 23;
             this.label5.Text = "警告时间（s）：";
             // 
+            // panelSetting
+            // 
+            this.panelSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelSetting.Controls.Add(this.btnSetFont);
+            this.panelSetting.Controls.Add(this.edtAlarmSec);
+            this.panelSetting.Controls.Add(this.gbPreview);
+            this.panelSetting.Controls.Add(this.label5);
+            this.panelSetting.Controls.Add(this.label2);
+            this.panelSetting.Controls.Add(this.btnSetNegForeground);
+            this.panelSetting.Controls.Add(this.btnSetPosForecolor);
+            this.panelSetting.Controls.Add(this.label1);
+            this.panelSetting.Controls.Add(this.label4);
+            this.panelSetting.Controls.Add(this.gbLog);
+            this.panelSetting.Controls.Add(this.label6);
+            this.panelSetting.Controls.Add(this.edtSec);
+            this.panelSetting.Controls.Add(this.edtMin);
+            this.panelSetting.Location = new System.Drawing.Point(3, 36);
+            this.panelSetting.Name = "panelSetting";
+            this.panelSetting.Size = new System.Drawing.Size(439, 540);
+            this.panelSetting.TabIndex = 27;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(3, 14);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(84, 16);
+            this.checkBox1.TabIndex = 28;
+            this.checkBox1.Text = "打开定时器";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // TimerSettingPan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.edtAlarmSec);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.btnSetNegForeground);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.gbLog);
-            this.Controls.Add(this.edtSec);
-            this.Controls.Add(this.edtMin);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnSetPosForecolor);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnSetFont);
-            this.Controls.Add(this.gbPreview);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.panelSetting);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TimerSettingPan";
-            this.Size = new System.Drawing.Size(396, 457);
+            this.Size = new System.Drawing.Size(445, 576);
             this.gbPreview.ResumeLayout(false);
             this.gbPreview.PerformLayout();
             this.labelContainer.ResumeLayout(false);
@@ -281,6 +307,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.edtSec)).EndInit();
             this.gbLog.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.edtAlarmSec)).EndInit();
+            this.panelSetting.ResumeLayout(false);
+            this.panelSetting.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,5 +336,7 @@
         private System.Windows.Forms.ColorDialog negativeForecolorDialog;
         private System.Windows.Forms.NumericUpDown edtAlarmSec;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panelSetting;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

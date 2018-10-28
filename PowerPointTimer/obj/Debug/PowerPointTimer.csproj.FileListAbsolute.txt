@@ -12,4 +12,3 @@ C:\Users\RenAr\Documents\Porgram\PowerPointTimer\PowerPointTimer\obj\Debug\Power
 C:\Users\RenAr\Documents\Porgram\PowerPointTimer\PowerPointTimer\obj\Debug\PowerPointTimer.TimerForm.resources
 C:\Users\RenAr\Documents\Porgram\PowerPointTimer\PowerPointTimer\obj\Debug\PowerPointTimer.TimerRibbon.resources
 C:\Users\RenAr\Documents\Porgram\PowerPointTimer\PowerPointTimer\obj\Debug\PowerPointTimer.TimerSettingPan.resources
-C:\Users\RenAr\Documents\Porgram\PowerPointTimer\PowerPointTimer\obj\Debug\PowerPointTimer.csprojAssemblyReference.cache

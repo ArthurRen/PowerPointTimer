@@ -120,5 +120,11 @@ namespace PowerPointTimer
         {
             TimerForm.AlarmSec = (int)edtAlarmSec.Value;
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            ThisAddIn.Enable = checkBox1.Checked;
+            panelSetting.Enabled = checkBox1.Checked;
+        }
     }
 }
