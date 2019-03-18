@@ -30,7 +30,7 @@ namespace PowerPointTimer
             // time
             var time = TimerForm.TickTime;
             labelTime.Text =
-                $"{time.Minutes.ToString("d2")}:{time.Seconds.ToString("d2")}";
+                $"{time.Minutes:d2}:{time.Seconds:d2}";
             edtMin.Value = time.Minutes;
             edtSec.Value = time.Seconds;
 
@@ -75,20 +75,15 @@ namespace PowerPointTimer
 
         private TimeSpan GetTime()
         {
-            int min = (int)edtMin.Value;
-            int sec = (int)edtSec.Value;
+            var min = (int)edtMin.Value;
+            var sec = (int)edtSec.Value;
             return new TimeSpan(0, min, sec);
-        }
-
-        private void edtHour_ValueChanged(object sender, EventArgs e)
-        {
-            ApplyTime(GetTime());
         }
 
         private void ApplyTime(TimeSpan time)
         {
             labelTime.Text =
-                $"{time.Minutes.ToString("d2")}:{time.Seconds.ToString("d2")}";
+                $"{time.Minutes:d2}:{time.Seconds:d2}";
             TimerForm.TickTime = time;
         }
 
@@ -102,12 +97,6 @@ namespace PowerPointTimer
             ApplyTime(GetTime());
         }
 
-        public void AddLog(TimeSpan time)
-        {
-            listLog.Items.Add(
-                $"{time.Hours.ToString("d2")}:{time.Minutes.ToString("d2")}:{time.Seconds.ToString("d2")}");
-        }
-
         private void btnSetNegForeground_Click(object sender, EventArgs e)
         {
             if (negativeForecolorDialog.ShowDialog() == DialogResult.OK)
@@ -119,12 +108,6 @@ namespace PowerPointTimer
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             TimerForm.AlarmSec = (int)edtAlarmSec.Value;
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            ThisAddIn.Enable = checkBox1.Checked;
-            panelSetting.Enabled = checkBox1.Checked;
         }
     }
 }

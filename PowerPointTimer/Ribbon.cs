@@ -1,5 +1,4 @@
-﻿using Microsoft.Office.Tools.Ribbon;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,23 +7,23 @@ using System.Runtime.InteropServices;
 using System.Text;
 using Office = Microsoft.Office.Core;
 
-// TODO:   按照以下步骤启用功能区(XML)项: 
+// TODO:  Follow these steps to enable the Ribbon (XML) item:
 
-// 1. 将以下代码块复制到 ThisAddin、ThisWorkbook 或 ThisDocument 类中。
+// 1: Copy the following code block into the ThisAddin, ThisWorkbook, or ThisDocument class.
 
 //  protected override Microsoft.Office.Core.IRibbonExtensibility CreateRibbonExtensibilityObject()
 //  {
 //      return new Ribbon();
 //  }
 
-// 2. 在此类的“功能区回调”区域中创建回调方法，以处理用户
-//    操作(如单击某个按钮)。注意: 如果已经从功能区设计器中导出此功能区，
-//    则将事件处理程序中的代码移动到回调方法并修改该代码以用于
-//    功能区扩展性(RibbonX)编程模型。
+// 2. Create callback methods in the "Ribbon Callbacks" region of this class to handle user
+//    actions, such as clicking a button. Note: if you have exported this Ribbon from the Ribbon designer,
+//    move your code from the event handlers to the callback methods and modify the code to work with the
+//    Ribbon extensibility (RibbonX) programming model.
 
-// 3. 向功能区 XML 文件中的控制标记分配特性，以标识代码中的相应回调方法。  
+// 3. Assign attributes to the control tags in the Ribbon XML file to identify the appropriate callback methods in your code.  
 
-// 有关详细信息，请参见 Visual Studio Tools for Office 帮助中的功能区 XML 文档。
+// For more information, see the Ribbon XML documentation in the Visual Studio Tools for Office Help.
 
 
 namespace PowerPointTimer
@@ -33,39 +32,54 @@ namespace PowerPointTimer
     public class Ribbon : Office.IRibbonExtensibility
     {
         private Office.IRibbonUI ribbon;
+        private TimerSettingForm _settingForm;
+        private LogForm _logForm;
 
         public Ribbon()
         {
         }
 
-        #region IRibbonExtensibility 成员
+        #region IRibbonExtensibility Members
 
         public string GetCustomUI(string ribbonID)
         {
             return GetResourceText("PowerPointTimer.Ribbon.xml");
         }
-        
+
         #endregion
 
-        #region 功能区回调
-        //在此处创建回叫方法。有关添加回叫方法的详细信息，请访问 https://go.microsoft.com/fwlink/?LinkID=271226
+        #region Ribbon Callbacks
+        //Create callback methods here. For more information about adding callback methods, visit https://go.microsoft.com/fwlink/?LinkID=271226
 
         public void Ribbon_Load(Office.IRibbonUI ribbonUI)
         {
             this.ribbon = ribbonUI;
         }
 
-        public void btnOpenTimerSetting_Click(Office.IRibbonControl control)
+        public void ckbEnabled_Click(Office.IRibbonControl control, bool isChecked)
         {
-            if (!ThisAddIn.SettingPan.Visible)
-            {
-                ThisAddIn.SettingPan.Visible = true;
-            }
+            ThisAddIn.Enable = isChecked;
+        }
+        
+        public void btnTimerSetting_Click(Office.IRibbonControl control)
+        {
+
+            if (_settingForm == null || _settingForm.IsDisposed)
+                _settingForm = new TimerSettingForm();
+            _settingForm.ShowDialog();
+        }
+
+        public void btnViewLog_Click(Office.IRibbonControl control)
+        {
+
+            if (_logForm == null || _logForm.IsDisposed)
+                _logForm = new LogForm();
+            _logForm.ShowDialog();
         }
 
         #endregion
 
-        #region 帮助器
+        #region Helpers
 
         private static string GetResourceText(string resourceName)
         {

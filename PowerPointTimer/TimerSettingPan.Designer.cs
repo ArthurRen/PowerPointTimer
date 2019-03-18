@@ -40,8 +40,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.edtMin = new System.Windows.Forms.NumericUpDown();
             this.edtSec = new System.Windows.Forms.NumericUpDown();
-            this.gbLog = new System.Windows.Forms.GroupBox();
-            this.listLog = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSetNegForeground = new System.Windows.Forms.Button();
@@ -49,12 +47,10 @@
             this.edtAlarmSec = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.panelSetting = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.gbPreview.SuspendLayout();
             this.labelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edtMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtSec)).BeginInit();
-            this.gbLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edtAlarmSec)).BeginInit();
             this.panelSetting.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +64,7 @@
             this.gbPreview.Margin = new System.Windows.Forms.Padding(2);
             this.gbPreview.Name = "gbPreview";
             this.gbPreview.Padding = new System.Windows.Forms.Padding(2);
-            this.gbPreview.Size = new System.Drawing.Size(437, 110);
+            this.gbPreview.Size = new System.Drawing.Size(445, 110);
             this.gbPreview.TabIndex = 0;
             this.gbPreview.TabStop = false;
             this.gbPreview.Text = "预览";
@@ -81,7 +77,7 @@
             this.labelContainer.Location = new System.Drawing.Point(2, 16);
             this.labelContainer.Margin = new System.Windows.Forms.Padding(2);
             this.labelContainer.Name = "labelContainer";
-            this.labelContainer.Size = new System.Drawing.Size(433, 56);
+            this.labelContainer.Size = new System.Drawing.Size(441, 56);
             this.labelContainer.TabIndex = 0;
             // 
             // labelTime
@@ -168,32 +164,6 @@
             this.edtSec.TabIndex = 15;
             this.edtSec.ValueChanged += new System.EventHandler(this.edtSec_ValueChanged);
             // 
-            // gbLog
-            // 
-            this.gbLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbLog.Controls.Add(this.listLog);
-            this.gbLog.Location = new System.Drawing.Point(0, 260);
-            this.gbLog.Margin = new System.Windows.Forms.Padding(2);
-            this.gbLog.Name = "gbLog";
-            this.gbLog.Padding = new System.Windows.Forms.Padding(2);
-            this.gbLog.Size = new System.Drawing.Size(439, 278);
-            this.gbLog.TabIndex = 18;
-            this.gbLog.TabStop = false;
-            this.gbLog.Text = "定时记录";
-            // 
-            // listLog
-            // 
-            this.listLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listLog.FormattingEnabled = true;
-            this.listLog.ItemHeight = 12;
-            this.listLog.Location = new System.Drawing.Point(2, 16);
-            this.listLog.Margin = new System.Windows.Forms.Padding(2);
-            this.listLog.Name = "listLog";
-            this.listLog.Size = new System.Drawing.Size(435, 260);
-            this.listLog.TabIndex = 18;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -270,47 +240,32 @@
             this.panelSetting.Controls.Add(this.btnSetPosForecolor);
             this.panelSetting.Controls.Add(this.label1);
             this.panelSetting.Controls.Add(this.label4);
-            this.panelSetting.Controls.Add(this.gbLog);
             this.panelSetting.Controls.Add(this.label6);
             this.panelSetting.Controls.Add(this.edtSec);
             this.panelSetting.Controls.Add(this.edtMin);
-            this.panelSetting.Location = new System.Drawing.Point(3, 36);
+            this.panelSetting.Location = new System.Drawing.Point(3, 3);
             this.panelSetting.Name = "panelSetting";
-            this.panelSetting.Size = new System.Drawing.Size(439, 540);
+            this.panelSetting.Size = new System.Drawing.Size(447, 266);
             this.panelSetting.TabIndex = 27;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(3, 14);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(84, 16);
-            this.checkBox1.TabIndex = 28;
-            this.checkBox1.Text = "打开定时器";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // TimerSettingPan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.panelSetting);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TimerSettingPan";
-            this.Size = new System.Drawing.Size(445, 576);
+            this.Size = new System.Drawing.Size(453, 272);
             this.gbPreview.ResumeLayout(false);
             this.gbPreview.PerformLayout();
             this.labelContainer.ResumeLayout(false);
             this.labelContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edtMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtSec)).EndInit();
-            this.gbLog.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.edtAlarmSec)).EndInit();
             this.panelSetting.ResumeLayout(false);
             this.panelSetting.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -328,8 +283,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown edtMin;
         private System.Windows.Forms.NumericUpDown edtSec;
-        private System.Windows.Forms.GroupBox gbLog;
-        private System.Windows.Forms.ListBox listLog;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSetNegForeground;
@@ -337,6 +290,5 @@
         private System.Windows.Forms.NumericUpDown edtAlarmSec;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panelSetting;
-        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

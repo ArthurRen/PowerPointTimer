@@ -2,9 +2,13 @@
 <customUI onLoad="Ribbon_Load" xmlns="http://schemas.microsoft.com/office/2006/01/customui">
     <ribbon>
         <tabs>
-            <tab id="tabTimer" label="定时器设置">
-                <group id="group1" label="设置">
-                    <button id="btnOpenTimerSetting" onAction="btnOpenTimerSetting_Click" label="打开设置面板" showImage="false" />
+            <tab idMso="TabAddIns">
+                <group id="settingGroup" label="设置">
+                    <checkBox id="ckbEnabled" onAction="ckbEnabled_Click" label="打开定时器" />
+                    <button id="btnTimerSetting" onAction="btnTimerSetting_Click" label="定时器设置" showImage="false" />
+                </group>
+                <group id="logGroup" label="定时记录">
+                    <button id="btnViewLog" onAction="btnViewLog_Click" label="查看定时记录" showImage="false" />
                 </group>
             </tab>
         </tabs>

@@ -12,7 +12,7 @@ namespace PowerPointTimer
     public partial class TimerForm : Form
     {
         private static TimeSpan _tickTime = TimeSpan.FromMinutes(5);
-        protected static event Action<TimeSpan> TickTimeChanged = null;
+        protected static event Action<TimeSpan> TickTimeChanged;
         public static TimeSpan TickTime
         {
             get => _tickTime;
@@ -26,8 +26,8 @@ namespace PowerPointTimer
             }
         }
 
-        private static Color _positiveForeground = Color.Black;
-        protected static event Action<Color> PosotiveForegroundChanged = null;
+        private static Color _positiveForeground = Color.Blue;
+        protected static event Action<Color> PositiveForegroundChanged;
         public static Color PositiveForeground
         {
             get => _positiveForeground; 
@@ -36,13 +36,13 @@ namespace PowerPointTimer
                 if (_positiveForeground != value)
                 {
                     _positiveForeground = value;
-                    PosotiveForegroundChanged?.Invoke(value);
+                    PositiveForegroundChanged?.Invoke(value);
                 }
             }
         }
 
         private static Color _negativeForeground = Color.Red;
-        protected static event Action<Color> NegativeForegroundChanged = null;
+        protected static event Action<Color> NegativeForegroundChanged;
         public static Color NegativeForeground
         {
             get => _negativeForeground;
@@ -56,8 +56,8 @@ namespace PowerPointTimer
             }
         }
 
-        private static Font _timeFont = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        protected static event Action<Font> TimeFontChanged = null;
+        private static Font _timeFont = new Font("微软雅黑", 42F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+        protected static event Action<Font> TimeFontChanged;
         public static Font TimeFont
         {
             get => _timeFont;
@@ -73,9 +73,9 @@ namespace PowerPointTimer
 
         public static int AlarmSec { get; set; } = 2;
 
-        private static TimeSpan _second = TimeSpan.FromSeconds(1);
+        private static readonly TimeSpan Second = TimeSpan.FromSeconds(1);
 
-        private System.Timers.Timer _timer = null;
+        private readonly System.Timers.Timer _timer;
 
         public TimeSpan CurrentTime { get; private set; }
 
@@ -90,20 +90,19 @@ namespace PowerPointTimer
             };
             _timer.Elapsed += (obj, arg) =>
             {
-                CurrentTime = CurrentTime.Subtract(_second);
+                CurrentTime = CurrentTime.Subtract(Second);
                 var time = CurrentTime.Duration();
                 var text =
-                    $"{(CurrentTime.TotalSeconds < 0 ? "-" : "")}{time.Minutes.ToString("d2")}:{time.Seconds.ToString("d2")}";
+                    $"{(CurrentTime.TotalSeconds < 0 ? "-" : "")}{time.Minutes:d2}:{time.Seconds:d2}";
                 BeginInvoke(new Action(() =>
                 {
                     labelTime.Text = text;
                 }));
-                // if time is positive and totalsec near AlarmSec , or time is negative and sec near alarmSec , start shinning
+                // if time is positive and total sec near AlarmSec , or time is negative and sec near alarmSec , start shinning
                 var totalSec = CurrentTime.TotalSeconds;
                 if ((totalSec <= AlarmSec && totalSec >= 0) ||
                     (totalSec < 0 && (60 - Math.Abs(CurrentTime.Seconds)) < AlarmSec))
                 {
-                    Console.WriteLine("begin shine");
                     BeginInvoke(new Action(() =>
                     {
                         StartShinning();
@@ -112,7 +111,7 @@ namespace PowerPointTimer
                 }
             };
 
-            PosotiveForegroundChanged += foreground =>
+            PositiveForegroundChanged += foreground =>
             {
                 labelTime.ForeColor = foreground;
             };
@@ -157,7 +156,7 @@ namespace PowerPointTimer
 
         private void AdjustFormLocation()
         {
-            this.Size = labelTime.Size;
+            Size = labelTime.Size;
             var resolution = Screen.GetBounds(labelTime);
             Left = resolution.Width - labelTime.Width;
             Top = 0;
@@ -192,7 +191,7 @@ namespace PowerPointTimer
             }
         }
 
-        private bool _isShining = false;
+        private bool _isShining;
         private void StartShinning()
         {
             if (_isShining)
@@ -203,7 +202,7 @@ namespace PowerPointTimer
             var resolution = Screen.GetBounds(labelTime);
             Left = (resolution.Width - Width) / 2;
             Top = (resolution.Height - Height) / 2;
-            System.Timers.Timer timer = new System.Timers.Timer
+            var timer = new System.Timers.Timer
             {
                 Interval = 500,
                 AutoReset = true , 
