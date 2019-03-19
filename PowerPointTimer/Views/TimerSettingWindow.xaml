@@ -1,0 +1,63 @@
+﻿<Window x:Class="PowerPointTimer.Views.TimerSettingWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PowerPointTimer.Views"
+             xmlns:vm="clr-namespace:PowerPointTimer.ViewModels"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             Title="定时器设置" SizeToContent="WidthAndHeight" ResizeMode="CanMinimize" 
+             d:DesignHeight="330" d:DesignWidth="400" d:DataContext="{d:DesignInstance {x:Type vm:TimerSettingWindowViewModel}}"
+             MinHeight="330" MinWidth="400">
+    <Grid Margin="20">
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="正常字体颜色：" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <xctk:ColorPicker Grid.Row="0" Grid.Column="1" SelectedColor="{Binding TimerSetting.NormalForeColor}" HorizontalAlignment="Left"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="警告字体颜色：" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <xctk:ColorPicker Grid.Row="2" Grid.Column="1" SelectedColor="{Binding TimerSetting.AlarmForeColor}" HorizontalAlignment="Left"/>
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="字体尺寸：" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <xctk:IntegerUpDown Name="FontSizeSelector" Grid.Row="4" Grid.Column="1"  Maximum="100" Minimum="1" Value="{Binding TimerSetting.FontSize}" HorizontalAlignment="Left"/>
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="开始时间：" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal">
+                <xctk:IntegerUpDown Name="MinutesSelector" Value="{Binding TimerSetting.DurationMinutes}" Minimum="0" Maximum="59" Margin="0,0,5,0"/>
+                <TextBlock Text=":"/>
+                <xctk:IntegerUpDown Name="SecsSelector" Value="{Binding TimerSetting.DurationSecs}" Minimum="0" Maximum="59" Margin="5,0,0,0"/>
+            </StackPanel>
+            <TextBlock Grid.Row="8" Grid.Column="0" Text="警告时间(s)：" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <xctk:IntegerUpDown Grid.Row="8" Grid.Column="1" Value="{Binding TimerSetting.AlarmSec}" Maximum="59" Minimum="1" Width="Auto" HorizontalAlignment="Left"/>
+            <TextBlock Grid.Row="10" Grid.Column="0" Text="PPT放映屏幕编号：" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <xctk:IntegerUpDown Grid.Row="10" Grid.Column="1" Value="{Binding TimerSetting.ScreenIndex}" Maximum="{Binding TimerSetting.ScreensCount}" Minimum="1" Width="Auto" HorizontalAlignment="Left"/>
+            <StackPanel Grid.Row="0" Grid.Column="2" Grid.RowSpan="9" Margin="40,0,0,0">
+                <TextBlock Text="预览：" FontSize="20"/>
+                <TextBlock Foreground="{Binding TimerSetting.NormalForeground}"
+                           FontSize="{Binding Value, ElementName=FontSizeSelector}">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0:d2}:{1:d2}">
+                            <Binding Path="Value" ElementName="MinutesSelector"/>
+                            <Binding Path="Value" ElementName="SecsSelector"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

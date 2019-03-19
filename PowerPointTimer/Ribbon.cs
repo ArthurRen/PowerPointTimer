@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
+using PowerPointTimer.Views;
 using Office = Microsoft.Office.Core;
 
 // TODO:  Follow these steps to enable the Ribbon (XML) item:
@@ -32,8 +33,6 @@ namespace PowerPointTimer
     public class Ribbon : Office.IRibbonExtensibility
     {
         private Office.IRibbonUI ribbon;
-        private TimerSettingForm _settingForm;
-        private LogForm _logForm;
 
         public Ribbon()
         {
@@ -63,18 +62,14 @@ namespace PowerPointTimer
         
         public void btnTimerSetting_Click(Office.IRibbonControl control)
         {
-
-            if (_settingForm == null || _settingForm.IsDisposed)
-                _settingForm = new TimerSettingForm();
-            _settingForm.ShowDialog();
+            var window = new TimerSettingWindow();
+            window.ShowDialog();
         }
 
         public void btnViewLog_Click(Office.IRibbonControl control)
         {
-
-            if (_logForm == null || _logForm.IsDisposed)
-                _logForm = new LogForm();
-            _logForm.ShowDialog();
+            var logWindow = new LogWindow();
+            logWindow.ShowDialog();
         }
 
         #endregion

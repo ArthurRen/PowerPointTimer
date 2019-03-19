@@ -77,7 +77,7 @@ namespace PowerPointTimer
 
         private readonly System.Timers.Timer _timer;
 
-        public TimeSpan CurrentTime { get; private set; }
+        public TimeSpan Duration { get; private set; }
 
         public TimerForm()
         {
@@ -90,18 +90,18 @@ namespace PowerPointTimer
             };
             _timer.Elapsed += (obj, arg) =>
             {
-                CurrentTime = CurrentTime.Subtract(Second);
-                var time = CurrentTime.Duration();
+                Duration = Duration.Subtract(Second);
+                var time = Duration.Duration();
                 var text =
-                    $"{(CurrentTime.TotalSeconds < 0 ? "-" : "")}{time.Minutes:d2}:{time.Seconds:d2}";
+                    $"{(Duration.TotalSeconds < 0 ? "-" : "")}{time.Minutes:d2}:{time.Seconds:d2}";
                 BeginInvoke(new Action(() =>
                 {
                     labelTime.Text = text;
                 }));
                 // if time is positive and total sec near AlarmSec , or time is negative and sec near alarmSec , start shinning
-                var totalSec = CurrentTime.TotalSeconds;
+                var totalSec = Duration.TotalSeconds;
                 if ((totalSec <= AlarmSec && totalSec >= 0) ||
-                    (totalSec < 0 && (60 - Math.Abs(CurrentTime.Seconds)) < AlarmSec))
+                    (totalSec < 0 && (60 - Math.Abs(Duration.Seconds)) < AlarmSec))
                 {
                     BeginInvoke(new Action(() =>
                     {
@@ -116,7 +116,7 @@ namespace PowerPointTimer
                 labelTime.ForeColor = foreground;
             };
             TimeFontChanged += font => labelTime.Font = font;
-            TickTimeChanged += time => CurrentTime = time;
+            TickTimeChanged += time => Duration = time;
 
             labelTime.ForeColor = PositiveForeground;
             labelTime.Font = TimeFont;
@@ -125,12 +125,12 @@ namespace PowerPointTimer
             BackColor = Color.FromArgb(255 ,1 ,1 , 1);
             TransparencyKey = BackColor;
 
-            CurrentTime = TickTime;
+            Duration = TickTime;
         }
 
         public void StartTimer()
         {
-            CurrentTime = TickTime;
+            Duration = TickTime;
             if (_timer.Enabled)
             {
                 return;
@@ -212,7 +212,7 @@ namespace PowerPointTimer
             {
                 BeginInvoke(new Action(() =>
                 {
-                    if (CurrentTime.Seconds == 0)
+                    if (Duration.Seconds == 0)
                     {
                         labelTime.Visible = true;
                         AdjustFormLocation();

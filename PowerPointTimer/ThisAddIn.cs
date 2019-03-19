@@ -1,11 +1,13 @@
-﻿using PowerPoint = Microsoft.Office.Interop.PowerPoint;
+﻿using PowerPointTimer.Models;
+using PowerPointTimer.Views;
+using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 using Office = Microsoft.Office.Core;
 
 namespace PowerPointTimer
 {
     public partial class ThisAddIn
     {
-        private TimerForm _timerForm;
+        private TimerWindow _timerWindow;
 
         public static bool Enable { get; set; } = false;
 
@@ -18,19 +20,17 @@ namespace PowerPointTimer
         private void Application_SlideShowEnd(PowerPoint.Presentation Pres)
         {
             if (!Enable) return;
-            _timerForm.StopTimer();
-            _timerForm.Close();
-            LogForm.AddLog(_timerForm.CurrentTime);
+            _timerWindow.Close();
         }
 
         private void Application_SlideShowBegin(PowerPoint.SlideShowWindow Wn)
         {
             if (!Enable) return;
-            _timerForm = new TimerForm();
-            _timerForm.GotFocus += (_, __) => Wn.Activate();
-            _timerForm.TopMost = true;
-            _timerForm.Show();
-            _timerForm.StartTimer();
+            _timerWindow = new TimerWindow();
+            _timerWindow.GotFocus += (_, __) => Wn.Activate();
+            _timerWindow.Topmost = true;
+            _timerWindow.ShowActivated = true;
+            _timerWindow.Show();
         }
 
         protected override Office.IRibbonExtensibility CreateRibbonExtensibilityObject()
